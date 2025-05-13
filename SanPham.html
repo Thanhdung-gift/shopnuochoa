@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin Sản phẩm - Le tournesol</title>
+    <link rel="stylesheet" href="ThongTinSP.css">
+</head>
+
+<body>
+    <!-- Phần đầu trang -->
+    <header class="header">
+        <div class="container">
+            <h1>
+                <a href="/TrangChu/index.html" class="tieude">Le Tournesol</a>
+            </h1>
+            <ul class="menu">
+                <li><a href="/Chanel.html" class="custom-link">CHANEL</a></li>
+                <li><a href="/Dior.html" class="custom-link">DIOR</a></li>
+                <li><a href="/Saint.html" class="custom-link">SAINT LAURENT</a></li>
+                <li><a href="/LienHe.html" class="custom-link">LIÊN HỆ</a></li>
+                <li><a href="/DangKy.html" class="custom-link">TÀI KHOẢN</a></li>
+            </ul>
+    </header>
+    <hr>
+    <div class="btn-back-wrapper">
+        <a href="/Chanel.html" class="btn-back">← Trở lại</a>
+    </div>
+
+</div>
+    <!-- Phần hiển thị sản phẩm -->
+    <div class="container">
+        <div class="product-container">
+            <!-- Thư viện hình ảnh sản phẩm -->
+            <div class="gallery">
+                <div style="position: relative;">
+                    <img id="mainImage" class="main-image" src="/HìnhAnh/SanPhamChanel/COCOEAUDEPA1.jpg" alt="Sản phẩm">
+                    <div class="nav-arrows">
+                        <button class="arrow prev">&#10094;</button>
+                        <button class="arrow next">&#10095;</button>
+                    </div>
+                </div>
+                <div class="thumbnail-container">
+                    <img class="thumbnail active" src="/HìnhAnh/SanPhamChanel/COCOEAUDEPA1.jpg"
+                        data-full="https://via.placeholder.com/1200x1200?text=Sản+phẩm+1" alt="Sản phẩm 1">
+                    <img class="thumbnail" src="/HìnhAnh/SanPhamChanel/9562208469022.jpg"
+                        data-full="https://via.placeholder.com/1200x1200?text=Sản+phẩm+2" alt="Sản phẩm 2">
+                </div>
+            </div>
+
+            <!-- Thông tin sản phẩm -->
+            <div class="product-info">
+                <h1 class="product-title">COCO MADEMOISELLE</h1>
+                <h6 class="product-main">EAU DE PARFUM DẠNG XỊT</h6>
+                <p class="product-brand">Thương hiệu: Chanel</p>
+                <p class="product-price">5 670 000 VNĐ</p>
+                <div class="product-description">
+                    <p><b>COCO MADEMOISELLE.</b> Mùi hương của người phụ nữ táo bạo và tự do. Hương nước hoa hổ phách
+                        đầy nữ tính với những nốt hương tươi mát đầy bất ngờ.</p>
+                    <p><b>Dung tích:</b> 100ml</p>
+                    <p><b>Loại:</b> Eau de Parfum</p>
+                    <p><b>Phong cách:</b> Quyến rũ, thanh lịch, cổ điển</p>
+                    <p><b>THÀNH PHẦN</b></p>
+                    <p>COCO MADEMOISELLE Eau de Parfum là hương nước hoa hổ phách, một mùi hương sống động và bay bổng.
+                        Hương cam tươi mát và rực rỡ ngay lập tức đánh thức các giác quan, tiếp nối là sự hoà quyện giữa
+                        hoa nhài và hoa hồng đầy quyến rũ, cuối cùng mở ra những nét thuần khiết của hoắc hương và cỏ
+                        vetiver.</p>
+                </div>
+                <button class="add-to-cart">THÊM VÀO GIỎ HÀNG</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hộp phóng to hình ảnh -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Xử lý ảnh sản phẩm
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const closeBtn = document.querySelector('.close');
+            const addToCartBtn = document.querySelector('.add-to-cart');
+
+            let currentIndex = 0;
+
+            // Đổi ảnh chính khi click vào thumbnail
+            thumbnails.forEach((thumb, index) => {
+                thumb.addEventListener('click', function () {
+                    mainImage.src = this.src.replace('600x600', '800x800');
+                    mainImage.alt = this.alt;
+                    document.querySelector('.thumbnail.active').classList.remove('active');
+                    this.classList.add('active');
+                    currentIndex = index;
+                });
+            });
+
+            // Mũi tên chuyển ảnh
+            prevBtn.addEventListener('click', function () {
+                currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+                updateMainImage();
+            });
+
+            nextBtn.addEventListener('click', function () {
+                currentIndex = (currentIndex + 1) % thumbnails.length;
+                updateMainImage();
+            });
+
+            function updateMainImage() {
+                const activeThumb = thumbnails[currentIndex];
+                mainImage.src = activeThumb.src.replace('600x600', '800x800');
+                mainImage.alt = activeThumb.alt;
+                document.querySelector('.thumbnail.active').classList.remove('active');
+                activeThumb.classList.add('active');
+            }
+
+            // Phóng to ảnh khi click
+            mainImage.addEventListener('click', function () {
+                modal.style.display = "block";
+                modalImg.src = thumbnails[currentIndex].getAttribute('data-full');
+            });
+
+            closeBtn.addEventListener('click', function () {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener('click', function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+
+            // Phím tắt điều hướng ảnh
+            document.addEventListener('keydown', function (e) {
+                if (modal.style.display === "block") {
+                    if (e.key === 'Escape') {
+                        modal.style.display = "none";
+                    } else if (e.key === 'ArrowLeft') {
+                        currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+                        modalImg.src = thumbnails[currentIndex].getAttribute('data-full');
+                    } else if (e.key === 'ArrowRight') {
+                        currentIndex = (currentIndex + 1) % thumbnails.length;
+                        modalImg.src = thumbnails[currentIndex].getAttribute('data-full');
+                    }
+                } else {
+                    if (e.key === 'ArrowLeft') {
+                        currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+                        updateMainImage();
+                    } else if (e.key === 'ArrowRight') {
+                        currentIndex = (currentIndex + 1) % thumbnails.length;
+                        updateMainImage();
+                    }
+                }
+            });
+
+            // Thêm vào giỏ hàng
+            addToCartBtn.addEventListener('click', function () {
+                const name = document.querySelector('.product-title').innerText;
+                const price = document.querySelector('.product-price').innerText;
+                addToCart(name, price);
+            });
+
+            // Hàm xử lý thêm sản phẩm vào giỏ hàng
+            function addToCart(name, price) {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+                // Kiểm tra nếu sản phẩm đã tồn tại
+                let existingProduct = cart.find(item => item.name === name);
+                if (existingProduct) {
+                    existingProduct.quantity += 1;
+                } else {
+                    cart.push({ name, price, quantity: 1 });
+                }
+
+                localStorage.setItem("cart", JSON.stringify(cart));
+                updateCartQuantity();
+            }
+
+            // Cập nhật tổng số sản phẩm
+            function updateCartQuantity() {
+                // Nếu cần cập nhật hiển thị giỏ hàng, thêm đoạn xử lý tại đây
+                console.log("Cập nhật giỏ hàng");
+            }
+        });
+    </script>
+</body>
+
+</html>

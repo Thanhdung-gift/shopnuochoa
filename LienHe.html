@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liên hệ - Le Tournesol</title>
+  <link rel="stylesheet" href="LienHe.css" />
+
+</head>
+
+<body>
+  <div class="header">
+    <a href="/index.html" class="TieuDe">Le Tournesol</a>
+    <ul class="menu">
+      <li><a href="/Chanel.html" class="custom-link">CHANEL</a></li>
+      <li><a href="/Dior.html" class="custom-link">DIOR</a></li>
+      <li><a href="/Saint.html" class="custom-link">SAINT LAURENT</a></li>
+      <li><a href="/LienHe.html" class="custom-link">LIÊN HỆ</a></li>
+      <li><a href="/DangKy.html" class="custom-link">TÀI KHOẢN</a></li>
+    </ul>
+    <hr>
+    <a style="color: #A67C52;">
+      <h1>Liên hệ chúng tôi</h1>
+    </a>
+  </div>
+  <div class="btn-back-wrapper">
+    <a href="/Chanel.html" class="btn-back">← Trở lại</a>
+  </div>
+
+  <!-- FORM PHẢI NẰM SAU .header -->
+  <div class="contact-container">
+    <form>
+      <div class="form-grid">
+        <div>
+          <label for="title">Giới tính</label>
+          <select id="title" name="title" required>
+            <option value="">Chọn</option>
+            <option value="mr">Mr</option>
+            <option value="ms">Ms</option>
+            <option value="mx">Mx</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="language">Ngôn ngữ</label>
+          <select id="language" name="language" required>
+            <option value="">Chọn</option>
+            <option value="en">English UK</option>
+            <option value="vi">Tiếng Việt</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="first-name">Tên</label>
+          <input type="text" id="first-name" name="first-name" required />
+        </div>
+
+        <div>
+          <label for="last-name">Họ</label>
+          <input type="text" id="last-name" name="last-name" required />
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div>
+          <label for="phone">Số điện thoại</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+
+        <div>
+          <label for="country">Quốc gia</label>
+          <select id="country" name="country" required>
+            <option value="">Chọn quốc gia</option>
+            <option value="vn">Việt Nam</option>
+            <option value="uae">United Arab Emirates</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="main-category">Danh mục chính</label>
+          <select id="main-category" name="main-category" required>
+            <option value="">Chọn danh mục</option>
+            <option value="product">Tư vấn sản phẩm / Trợ giúp</option>
+          </select>
+        </div>
+
+        <div class="full-width">
+          <label for="message">Nội dung</label>
+          <textarea id="message" name="message" placeholder="Nhập nội dung..." required></textarea>
+        </div>
+        <button type="submit">Gửi</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

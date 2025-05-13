@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quên tài khoản</title>
+    <link rel="stylesheet" href="/TrangChu.css">
+        
+</head>
+<body>
+    <!-- Logo và danh mục -->
+    <div class="header">
+        <h1>
+            <a href="index.html" class="tieude">Le Tournesol</a>
+        </h1>
+        <ul class="menu">
+            <li><a href="/Chanel.html" class="custom-link">CHANEL</a></li>
+            <li><a href="/Dior.html" class="custom-link">DIOR</a></li>
+            <li><a href="/Saint.html" class="custom-link">SAINT LAURENT</a></li>
+            <li><a href="/LienHe.html" class="custom-link">LIÊN HỆ</a></li>
+            <li><a href="/DangKy.html" class="custom-link">TÀI KHOẢN</a></li>
+        </ul>
+    </div>
+    <hr>
+
+    <div class="form-container">
+        <form action="/submit_forgot_password" method="POST">
+            <h1  style="color: #e7ad00">Quên tài khoản</h1>
+            <label for="email"  style="color: #e7ad00">Nhập email của bạn</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">Gửi yêu cầu</button>
+
+            <div class="forgot">
+                <p style="color: #e7ad00">Đã nhớ tài khoản? <a href="/DangNhap.html">Đăng nhập</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

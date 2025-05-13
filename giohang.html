@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="/giohang.css">
+
+</head>
+
+<body>
+    <!--DanhMuc-->
+    <div style="text-align: center;">
+        <h1>
+            <a href="/index.html" class="tieude">Le Tournesol</a>
+        </h1>
+    </div>
+    <ul class="menu">
+        <li><a href="/Chanel.html" class="custom-link">CHANEL</a></li>
+        <li><a href="/Dior.html" class="custom-link">DIOR</a></li>
+        <li><a href="/Saint.html" class="custom-link">SAINT LAURENT</a></li>
+        <li><a href="/LienHe.html" class="custom-link">LIÊN HỆ</a></li>
+        <li><a href="/DangKy.html" class="custom-link">TÀI KHOẢN</a></li>
+    </ul>
+    </div>
+    <br>
+
+    <!--Giỏ Hàng-->
+    <div class="container">
+        <header>
+            <div class="iconCart">
+                <a href="javascript:history.back()"><img src="/HìnhAnh/istockphoto-1199544694-612x612.jpg" alt=""></a>
+            </div>
+        </header>
+    </div>
+    <h1 style="text-align:center; color: #A67C52;">Giỏ Hàng Của Bạn</h1>
+    <table id="cartTable">
+        <thead>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody id="cartBody"></tbody>
+    </table>
+    <h2 id="total" style="text-align:center;"></h2>
+
+    <script>
+        function renderCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartBody = document.getElementById('cartBody');
+            let totalElement = document.getElementById('total');
+            cartBody.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                let thanhTien = item.price * item.quantity;
+                total += thanhTien;
+
+                let row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.price.toLocaleString()} VNĐ</td>
+                    <td>
+                        <button class="btn-minus" onclick="changeQuantity(${index}, -1)">−</button>
+                        ${item.quantity}
+                        <button class="btn-plus" onclick="changeQuantity(${index}, 1)">+</button>
+                    </td>
+                    <td>${thanhTien.toLocaleString()} VNĐ</td>
+                `;
+                cartBody.appendChild(row);
+            });
+
+            totalElement.textContent = `Tổng cộng: ${total.toLocaleString()} VNĐ`;
+        }
+
+        function changeQuantity(index, delta) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart[index].quantity += delta;
+
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1); // Xóa sản phẩm nếu số lượng <= 0
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        renderCart(); // Tải trang xong thì hiển thị giỏ hàng
+    </script>
+</body>
+
+</html>

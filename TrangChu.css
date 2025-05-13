@@ -1,0 +1,273 @@
+/* ==== BASE STYLES ==== */
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f3f3;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+hr {
+  margin: 10px 0;
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+}
+
+/* ==== HEADER STYLES ==== */
+.header {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.tieude {
+  font-family: "Arial", sans-serif;
+  font-size: 50px;
+  color: #A67C52;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.menu li {
+  margin: 0 15px;
+}
+
+.custom-link {
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  color: #A67C52;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.custom-link:hover {
+  color: #FFC107;
+}
+
+/* ==== FORM STYLES ==== */
+.form-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #e7ad00;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #e7ad00;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+button {
+  width: 100%;
+  padding: 12px;
+  background: #fff891;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f1e05a;
+}
+
+.forgot {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.forgot a {
+  color: #e7ad00;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot a:hover {
+  text-decoration: underline;
+}
+
+/* ==== BANNER STYLES ==== */
+.chanel-banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url("/HìnhAnh/QuangCao/Chanel.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.chanel-text-wrapper {
+  position: absolute;
+  top: 65%;
+  /* chỉnh vị trí theo chiều dọc */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 20px;
+}
+
+
+.brand-name {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.dior-banner .chanel-text-wrapper {
+  top: 75%;
+  /* Chỉnh vị trí chữ cho riêng Dior */
+}
+
+.dior-banner .brand-name {
+  margin-bottom: 35px;
+}
+.main-text {
+  font-size: 48px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: 750;
+  line-height: 1.2;
+  white-space: nowrap;
+  /* NGĂN XUỐNG DÒNG */
+}
+
+.chanel-button {
+  padding: 14px 32px;
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+.chanel-button:hover {
+  background-color: black;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .main-text {
+    font-size: 32px;
+  }
+
+  .chanel-banner {
+    height: 500px;
+  }
+
+  .chanel-text-wrapper {
+    top: 70%;
+  }
+}
+
+
+.chanel-button {
+  background-color: #A67C52;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.chanel-button:hover {
+  background-color: #8a5e3a;
+}
+
+/* ==== FOOTER & CONTACT ==== */
+.website-info-container {
+  padding: 30px;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+}
+
+.website-description {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.contact-info h3 {
+  margin-top: 0;
+  color: #A67C52;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+.contact-info a {
+  color: #A67C52;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icon img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+.social-icon:hover img {
+  transform: scale(1.1);
+}

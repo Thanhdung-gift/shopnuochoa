@@ -1,0 +1,149 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom right, #f9f9f9, #e6e6e6);
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  text-align: center;
+  padding: 20px 0 10px 0;
+  background-color: #f0f0f0;
+}
+
+.TieuDe {
+  font-size: 50px;
+  color: #A67C52;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.menu li {
+  display: inline;
+}
+
+.custom-link {
+  font-size: 24px;
+  font-weight: bold;
+  color: #A67C52;
+  text-decoration: none;
+}
+
+.custom-link:hover {
+  color: #FFC107;
+}
+
+hr {
+  margin: 20px auto 10px auto;
+  width: 90%;
+}
+.btn-back-wrapper {
+  margin: 20px;
+  margin-left: 40px;
+  /* điều chỉnh theo bố cục */
+}
+
+.btn-back {
+  background-color: #A67C52;
+  color: white;
+  padding: 8px 14px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #8b623f;
+}
+p.sub-heading {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.contact-container {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 40px;
+  margin: 30px auto 60px auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 900px;
+}
+
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: none;
+  min-height: 200px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+button {
+  grid-column: 1 / -1;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #8b623f;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color:#FFD700 ;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  textarea,
+  button {
+    grid-column: span 1;
+  }
+}

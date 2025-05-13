@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="/TrangChu.css">
+</head>
+<body>
+    
+    
+    <div class="header">
+        <h1>
+            <a href="index.html" class="tieude">Le Tournesol</a>
+        </h1>
+        <ul class="menu">
+            <li><a href="/Chanel.html" class="custom-link">CHANEL</a></li>
+            <li><a href="/Dior.html" class="custom-link">DIOR</a></li>
+            <li><a href="/Saint.html" class="custom-link">SAINT LAURENT</a></li>
+            <li><a href="/LienHe.html" class="custom-link">LIÊN HỆ</a></li>
+            <li><a href="/DangKy.html" class="custom-link">TÀI KHOẢN</a></li>
+        </ul>
+    </div>
+    <hr>
+
+    <div class="form-container">
+        <form action="/submit_registration" method="POST">
+            <h1 style="color: #e7ad00" >Đăng ký</h1>
+            <label for="username" style="color: #e7ad00">Họ và tên</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email" style="color: #e7ad00">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password" style="color: #e7ad00">Mật khẩu</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm_password" style="color: #e7ad00">Xác nhận mật khẩu</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+
+            <button type="submit">Đăng ký</button>
+
+            <div class="forgot">
+                <p  style="color: #e7ad00">Đã có tài khoản? <a href="/DangNhap.html">Đăng nhập</a></p>
+            </div>
+        </form>
+    </div>
+    <script>
+        
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+    
+            
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+    
+            
+            if (password === confirmPassword) {
+                
+                alert("Đăng ký thành công!");
+    
+                window.location.href = '/DangNhap.html';
+            } else {
+                alert("Mật khẩu không khớp.");
+            }
+        });
+    </script>
+</body>
+</html>
